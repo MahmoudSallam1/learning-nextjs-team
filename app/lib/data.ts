@@ -76,12 +76,18 @@ export async function fetchCardData() {
 
     /**
      * In JavaScript, you can use the Promise.all() or Promise.allSettled() functions to initiate all promises at the same time
+     * 
+     * 
      */
+
+
     const data = await Promise.all([
       invoiceCountPromise,
       customerCountPromise,
       invoiceStatusPromise,
     ]);
+
+    
 
     const numberOfInvoices = Number(data[0].rows[0].count ?? "0");
     const numberOfCustomers = Number(data[1].rows[0].count ?? "0");
